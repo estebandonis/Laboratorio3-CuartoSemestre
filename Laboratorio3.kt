@@ -18,10 +18,6 @@ fun processList(inputList: List<Any?>?): List<ItemData>? {
 
     var lista: MutableList<ItemData>? = mutableListOf()
 
-    if (inputList == null){
-        return null
-    }
-
     inputList?.forEach{
         OriginalPos = contador
         contador += 1
@@ -47,14 +43,16 @@ fun processList(inputList: List<Any?>?): List<ItemData>? {
             null -> {}
             else -> {lista?.add(ItemData(OriginalPos, it))}
         }
+    } ?: {
+        return null
     }
     return lista
-
+    
 }
 
 
 fun typeInt(item: Int): String?{
-    var Info: String = ""
+    val Info: String = ""
     if ((item % 10) == 0){
         Info = "m10"
     }
